@@ -161,7 +161,6 @@
 
         .modal-split { display: flex; align-items: flex-start; gap: 80px; padding: 40px 0 100px 0; }
         .modal-split-left { flex: 0.4; position: sticky; top: 60px; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 20px; }
-        /* 隐藏左侧滚动条 */
         .modal-split-left::-webkit-scrollbar { display: none; }
         .modal-split-left { -ms-overflow-style: none; scrollbar-width: none; }
         
@@ -181,15 +180,27 @@
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         
-        /* 伪装视频封面卡片 */
+        /* 伪装竖屏视频封面卡片 (3:4) */
         .mock-video-card { position: relative; width: 100%; padding-top: 133%; background: #e7e5e4; border-radius: 8px; overflow: hidden; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease; }
         .mock-video-card:hover { transform: translateY(-5px); }
         .mock-video-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+        
+        /* 伪装横屏视频封面卡片 (16:9) */
+        .mock-video-card-landscape { position: relative; width: 100%; padding-top: 56.25%; background: #e7e5e4; border-radius: 8px; overflow: hidden; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease; }
+        .mock-video-card-landscape:hover { transform: translateY(-5px); }
+        .mock-video-card-landscape img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
+
         .play-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; }
         .play-btn { width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #1c1917; padding-left: 5px; }
 
         .image-card { width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; }
         .image-card img { width: 100%; height: auto; display: block; }
+
+        /* 高级外部链接卡片 (用于 One Earth) */
+        .website-card { display: block; background: #fff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 40px 30px; text-decoration: none; transition: 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
+        .website-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+        .website-card h2 { font-family: var(--font-display); font-size: 2.2rem; color: #1c1917; margin-bottom: 10px; }
+        .website-card p { color: var(--text-secondary); margin-bottom: 25px; font-size: 0.95rem; }
 
         /* Buttons */
         .link-btn { display: inline-block; padding: 12px 30px; border: 1px solid var(--accent); color: var(--accent); border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-align: center; }
@@ -197,7 +208,19 @@
         .link-btn-dark { display: inline-block; padding: 12px 30px; border: 1px solid #292524; background: #292524; color: #fff; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-align: center; }
         .link-btn-dark:hover { background: #44403c; border-color: #44403c; }
 
-        /* --- 9. Mobile Responsive --- */
+        /* --- 9. Scroll Reveal Animations (新增动画效果) --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform; /* 提升渲染性能 */
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 10. Mobile Responsive --- */
         @media (max-width: 900px) {
             .main-split, .modal-split { flex-direction: column; gap: 40px; padding: 30px 0; }
             .main-split-left, .modal-split-left { position: relative; top: 0; flex: 1; max-height: none; padding-right: 0;}
@@ -235,7 +258,7 @@
 
     <section id="artworks">
         <div class="main-split">
-            <div class="main-split-left">
+            <div class="main-split-left reveal">
                 <div class="section-subtitle">Creative Coding & Media Art</div>
                 <h2 class="section-title">Selected Works</h2>
                 <p style="margin-top:20px; color:var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
@@ -244,7 +267,7 @@
             </div>
             
             <div class="main-split-right">
-                <div class="art-item" onclick="openModal('modal-art1')">
+                <div class="art-item reveal" onclick="openModal('modal-art1')">
                     <div class="art-image-container">
                         <img src="art1.jpg" alt="Integrated Studio Project">
                     </div>
@@ -256,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="art-item" onclick="openModal('modal-art2')">
+                <div class="art-item reveal" onclick="openModal('modal-art2')">
                     <div class="art-image-container">
                         <img src="art2.jpg" alt="MadMapper Performance">
                     </div>
@@ -273,7 +296,7 @@
 
     <section id="experience">
         <div class="main-split">
-            <div class="main-split-left">
+            <div class="main-split-left reveal">
                 <div class="section-subtitle">Professional Timeline</div>
                 <h2 class="section-title">Experience</h2>
                 <p style="margin-top:20px; color:var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
@@ -282,28 +305,28 @@
             </div>
 
             <div class="main-split-right">
-                <div class="work-card glass-card" onclick="openModal('modal-amunc')">
+                <div class="work-card glass-card reveal" onclick="openModal('modal-amunc')">
                     <span class="work-date">Jan 2026 - Present</span>
                     <h3 class="work-role">Secretary-General</h3>
                     <span class="work-company">2026 Athens Cup Model United Nations</span>
                     <p style="color:var(--text-secondary);">Leading a 90+ person team to host 550+ international delegates from 27 provinces.</p>
                 </div>
 
-                <div class="work-card glass-card" onclick="openModal('modal-ist')">
+                <div class="work-card glass-card reveal" onclick="openModal('modal-ist')">
                     <span class="work-date">Dec 2025 - Feb 2026</span>
                     <h3 class="work-role">Strategic Project & Operations Intern</h3>
                     <span class="work-company">Institute of Sustainability and Technology</span>
                     <p style="color:var(--text-secondary);">Orchestrated logistical roadmaps for the One Earth Summit and managed cross-departmental integration.</p>
                 </div>
 
-                <div class="work-card glass-card" onclick="openModal('modal-cityu')">
+                <div class="work-card glass-card reveal" onclick="openModal('modal-cityu')">
                     <span class="work-date">Oct 2025 - Present</span>
                     <h3 class="work-role">Rednote Operations Intern</h3>
                     <span class="work-company">Admission Office, CityU</span>
                     <p style="color:var(--text-secondary);">Synchronized social media promotions with offline campus events to maximize engagement.</p>
                 </div>
 
-                <div class="work-card glass-card" onclick="openModal('modal-siff')">
+                <div class="work-card glass-card reveal" onclick="openModal('modal-siff')">
                     <span class="work-date">April 2025 - June 2025</span>
                     <h3 class="work-role">Media & Partnership Assistant</h3>
                     <span class="work-company">Shanghai International Film Festival</span>
@@ -314,7 +337,7 @@
     </section>
 
     <section id="about">
-        <div class="about-container">
+        <div class="about-container reveal">
             <div>
                 <h2>About Kai</h2>
                 <p style="color: #1c1917; margin-bottom: 20px;">
@@ -439,20 +462,20 @@
                     </div>
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Closing ceremony video</h4>
-                        <a href="http://xhslink.com/o/9cSwy1TbWn1" target="_blank" class="mock-video-card">
+                        <a href="http://xhslink.com/o/9cSwy1TbWn1" target="_blank" class="mock-video-card-landscape">
                             <img src="amunc_video1.jpg" alt="Closing ceremony video">
                             <div class="play-overlay"><div class="play-btn">▶</div></div>
                         </a>
                     </div>
                     <div>
-                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Rednote reel</h4>
-                        <a href="http://xhslink.com/o/6GCQNszhnrW" target="_blank" class="mock-video-card">
+                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">rednote reel</h4>
+                        <a href="http://xhslink.com/o/6GCQNszhnrW" target="_blank" class="mock-video-card-landscape">
                             <img src="amunc_video2.jpg" alt="rednote reel">
                             <div class="play-overlay"><div class="play-btn">▶</div></div>
                         </a>
                     </div>
                     <div>
-                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Rednote reel</h4>
+                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">rednote reel</h4>
                         <a href="http://xhslink.com/o/13gqWlE61jz" target="_blank" class="mock-video-card">
                             <img src="amunc_video3.jpg" alt="rednote reel">
                             <div class="play-overlay"><div class="play-btn">▶</div></div>
@@ -487,8 +510,10 @@
                 <div class="modal-split-right">
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Official Platform</h4>
-                        <a href="https://www.oneearthnextgen.org/#" target="_blank" class="mock-video-card" style="padding-top:60%; background: #292524; display:flex; align-items:center; justify-content:center; text-decoration:none;">
-                            <h2 style="position:absolute; color:#fff; font-family:var(--font-display);">One Earth NextGen</h2>
+                        <a href="https://www.oneearthnextgen.org/#" target="_blank" class="website-card">
+                            <h2>One Earth NextGen</h2>
+                            <p>Explore the official platform and initiatives for the One Earth Summit.</p>
+                            <span class="link-btn-dark" style="margin-top: 0;">Visit Website &rarr;</span>
                         </a>
                     </div>
                 </div>
@@ -558,6 +583,28 @@
                 document.body.style.overflow = "auto";
             }
         }
+
+        // ================= Intersection Observer (Scroll Reveal Animation) =================
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // 当元素 15% 进入屏幕时触发动画
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // 可选：如果不希望滑上去再滑下来时重新动画，可以取消注释下面这行
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
     </script>
 
 </body>
