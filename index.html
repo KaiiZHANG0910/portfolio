@@ -108,7 +108,7 @@
             border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow); border-radius: 12px;
         }
 
-        /* --- 6. 首页高级分屏布局 (Main Page Split Layout) --- */
+        /* --- 6. 首页高级分屏布局 --- */
         .main-split { display: flex; align-items: flex-start; gap: 80px; }
         .main-split-left { flex: 0.35; position: sticky; top: 140px; padding-right: 20px; }
         .main-split-right { flex: 0.65; display: flex; flex-direction: column; gap: 50px; }
@@ -152,9 +152,9 @@
         .contact-info div { margin-bottom: 10px; }
         .contact-info a { color: #1c1917; border-bottom: 1px solid #1c1917; }
 
-        /* --- 8. 弹窗高级分屏布局 (Modal Split Layout) --- */
+        /* --- 8. 弹窗高级分屏布局 --- */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(250, 250, 249, 0.98); overflow-y: auto; }
-        .modal-content { max-width: 1400px; margin: 60px auto; padding: 0 40px; animation: fadeIn 0.5s ease; }
+        .modal-content { max-width: 1400px; margin: 60px auto; padding: 0 40px; animation: fadeIn 0.5s ease; border-radius: 12px;}
         @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
         .close-btn { position: fixed; right: 40px; top: 30px; font-size: 3rem; cursor: pointer; color: #57534e; z-index: 2010; transition: 0.3s; }
         .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
@@ -163,7 +163,6 @@
         .modal-split-left { flex: 0.4; position: sticky; top: 60px; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 20px; }
         .modal-split-left::-webkit-scrollbar { display: none; }
         .modal-split-left { -ms-overflow-style: none; scrollbar-width: none; }
-        
         .modal-split-right { flex: 0.6; display: flex; flex-direction: column; gap: 50px; }
 
         /* Typography inside Modal */
@@ -180,12 +179,10 @@
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
         .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         
-        /* 伪装竖屏视频封面卡片 (3:4) */
         .mock-video-card { position: relative; width: 100%; padding-top: 133%; background: #e7e5e4; border-radius: 8px; overflow: hidden; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease; }
         .mock-video-card:hover { transform: translateY(-5px); }
         .mock-video-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         
-        /* 伪装横屏视频封面卡片 (16:9) */
         .mock-video-card-landscape { position: relative; width: 100%; padding-top: 56.25%; background: #e7e5e4; border-radius: 8px; overflow: hidden; display: block; box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: transform 0.4s ease; }
         .mock-video-card-landscape:hover { transform: translateY(-5px); }
         .mock-video-card-landscape img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -196,7 +193,6 @@
         .image-card { width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; }
         .image-card img { width: 100%; height: auto; display: block; }
 
-        /* 高级外部链接卡片 (用于 One Earth) */
         .website-card { display: block; background: #fff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 40px 30px; text-decoration: none; transition: 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         .website-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
         .website-card h2 { font-family: var(--font-display); font-size: 2.2rem; color: #1c1917; margin-bottom: 10px; }
@@ -205,18 +201,20 @@
         /* Buttons */
         .link-btn { display: inline-block; padding: 12px 30px; border: 1px solid var(--accent); color: var(--accent); border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-align: center; }
         .link-btn:hover { background: var(--accent); color: #fff; }
-        .link-btn-dark { display: inline-block; padding: 12px 30px; border: 1px solid #292524; background: #292524; color: #fff; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-align: center; }
+        .link-btn-dark { display: inline-block; padding: 10px 25px; border: 1px solid #292524; background: #292524; color: #fff; border-radius: 50px; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-align: center; }
         .link-btn-dark:hover { background: #44403c; border-color: #44403c; }
 
-        /* --- 9. Scroll Reveal Animations (新增动画效果) --- */
+        /* --- 9. Scroll Reveal Animations (更新为灰色褪去变彩色) --- */
         .reveal {
-            opacity: 0;
-            transform: translateY(60px);
-            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: opacity, transform; /* 提升渲染性能 */
+            opacity: 0.4;
+            filter: grayscale(100%) contrast(85%); /* 没滑到的时候是灰色的 */
+            transform: translateY(50px);
+            transition: all 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform, filter;
         }
         .reveal.active {
             opacity: 1;
+            filter: grayscale(0%) contrast(100%); /* 滑到后恢复原始色彩 */
             transform: translateY(0);
         }
 
@@ -389,10 +387,6 @@
                         <p class="article-text">
                             While this initial thought was desperate, I found my answer: <strong>Emotions, reactions, and feelings are not fake.</strong>
                         </p>
-                        <div class="section-divider"><span>Visual Language</span><div class="line"></div></div>
-                        <p class="article-text">
-                            Visually, I displayed raw code to create an unreal, Cyberpunk atmosphere. These lines were written in Java syntax, yet intentionally "fake". In contrast, the second half incorporates authentic voice recordings from my mother and grandmother.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -421,10 +415,6 @@
                         <p class="article-text">
                             I designed a storyline where a girl with bipolar disorder engages in a dialogue with a doctor. However, the doctor's endless questioning pushes her mental state into a more fragile condition.
                         </p>
-                        <div class="section-divider"><span>Technical Execution</span><div class="line"></div></div>
-                        <p class="article-text">
-                            During the performance, the doctor's image was projected onto arranged physical blocks using <strong>MadMapper</strong> to simulate a distorted television effect, symbolizing the disconnect between the patient and the clinical system.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -446,10 +436,13 @@
                         <li style="margin-bottom: 10px;"><strong>Integration Excellence:</strong> Developed a unified communication protocol mirroring Disney's Operation Integration framework.</li>
                     </ul>
 
-                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid #eee;">
-                        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem;">@雅典杯AC-IDEA</p>
-                        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>3579</strong> 次赞与收藏</p>
-                        <a href="https://xhslink.com/m/3JCu2JrvX0w" target="_blank" class="link-btn-dark" style="margin-top: 0; padding: 10px 25px;">查看 Ta 的主页 &rarr;</a>
+                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: flex-start; gap: 15px;">
+                        <img src="acmunlogo.jpg" alt="AC-IDEA Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@雅典杯AC-IDEA</p>
+                            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>3579</strong> 次赞与收藏</p>
+                            <a href="https://xhslink.com/m/3JCu2JrvX0w" target="_blank" class="link-btn-dark">查看 Ta 的主页 &rarr;</a>
+                        </div>
                     </div>
                 </div>
 
@@ -459,20 +452,6 @@
                         <div class="video-wrapper">
                             <iframe src="//player.bilibili.com/player.html?bvid=BV1cpfiBnEbw&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
                         </div>
-                    </div>
-                    <div>
-                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Closing ceremony video</h4>
-                        <a href="http://xhslink.com/o/9cSwy1TbWn1" target="_blank" class="mock-video-card-landscape">
-                            <img src="amunc_video1.jpg" alt="Closing ceremony video">
-                            <div class="play-overlay"><div class="play-btn">▶</div></div>
-                        </a>
-                    </div>
-                    <div>
-                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">rednote reel</h4>
-                        <a href="http://xhslink.com/o/6GCQNszhnrW" target="_blank" class="mock-video-card-landscape">
-                            <img src="amunc_video2.jpg" alt="rednote reel">
-                            <div class="play-overlay"><div class="play-btn">▶</div></div>
-                        </a>
                     </div>
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">rednote reel</h4>
@@ -488,7 +467,7 @@
 
     <div id="modal-ist" class="modal">
         <span class="close-btn" onclick="closeModal('modal-ist')">&times;</span>
-        <div class="modal-content">
+        <div class="modal-content" style="background: linear-gradient(rgba(250, 250, 249, 0.93), rgba(250, 250, 249, 0.93)), url('OES_Background_items-3.png') center/cover no-repeat; padding-left: 40px; padding-right: 40px;">
             <div class="modal-split">
                 <div class="modal-split-left">
                     <span class="article-meta">Dec 2025 - Feb 2026 | Hong Kong</span>
@@ -501,10 +480,13 @@
                         <li style="margin-bottom: 10px;"><strong>Project Documentation:</strong> Managed "Smartsheet" trackers to minimize schedule clashes.</li>
                     </ul>
 
-                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid #eee;">
-                        <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem;">@Regal Education 富豪教育</p>
-                        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
-                        <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="link-btn-dark" style="margin-top: 0; padding: 10px 25px;">查看 Ta 的主页 &rarr;</a>
+                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px;">
+                        <img src="regallogo.jpg" alt="Regal Education Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1;">
+                            <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@Regal Education 富豪教育</p>
+                            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
+                            <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="link-btn-dark">查看 Ta 的主页 &rarr;</a>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-split-right">
@@ -584,20 +566,18 @@
             }
         }
 
-        // ================= Intersection Observer (Scroll Reveal Animation) =================
+        // ================= Intersection Observer (更新过的 Scroll Reveal) =================
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
-                threshold: 0.15 // 当元素 15% 进入屏幕时触发动画
+                threshold: 0.15 
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // 可选：如果不希望滑上去再滑下来时重新动画，可以取消注释下面这行
-                        // observer.unobserve(entry.target); 
                     }
                 });
             }, observerOptions);
