@@ -110,7 +110,6 @@
 
         /* --- 6. 首页高级分屏布局 --- */
         .main-split { display: flex; align-items: flex-start; gap: 80px; }
-        /* 【修复1】给左侧加上绝对比例 0 0 35%，右侧加上 min-width: 0 防止被撑开 */
         .main-split-left { flex: 0 0 35%; position: sticky; top: 140px; padding-right: 20px; }
         .main-split-right { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 50px; }
 
@@ -159,7 +158,6 @@
         .close-btn:hover { color: var(--accent); transform: rotate(90deg); }
 
         .modal-split { display: flex; align-items: flex-start; gap: 80px; padding: 40px 0 100px 0; }
-        /* 【修复2】给弹窗的左侧加上绝对比例 0 0 40%，右侧加上 min-width: 0 防止被横向滚动条撑爆 */
         .modal-split-left { flex: 0 0 40%; position: sticky; top: 60px; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 20px; }
         .modal-split-left::-webkit-scrollbar { display: none; }
         .modal-split-left { -ms-overflow-style: none; scrollbar-width: none; }
@@ -206,7 +204,7 @@
             padding-bottom: 15px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            width: 100%; /* 防止滑动容器无限延伸 */
+            width: 100%;
         }
         .horizontal-scroll-container::-webkit-scrollbar { height: 6px; }
         .horizontal-scroll-container::-webkit-scrollbar-track { background: #f5f5f4; border-radius: 10px; }
@@ -458,8 +456,8 @@
                         <li style="margin-bottom: 10px;"><strong>Integration Excellence:</strong> Developed a unified communication protocol mirroring Disney's Operation Integration framework.</li>
                     </ul>
 
-                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid #eee; display: flex; align-items: flex-start; gap: 15px;">
-                        <img src="acmunlogo.jpg" alt="AC-IDEA Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px;">
+                        <img src="acmunlogo.jpg" alt="AC-IDEA Logo" style="width: 60px; height: auto; border-radius: 6px;">
                         <div style="flex: 1;">
                             <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@雅典杯AC-IDEA</p>
                             <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>3579</strong> 次赞与收藏</p>
@@ -515,16 +513,8 @@
                         <li style="margin-bottom: 10px;"><strong>Cross-departmental Integration:</strong> Operational liaison for global partners including Alibaba and XPeng Motors.</li>
                         <li style="margin-bottom: 10px;"><strong>Project Documentation:</strong> Managed "Smartsheet" trackers to minimize schedule clashes.</li>
                     </ul>
-
-                    <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px;">
-                        <img src="regallogo.jpg" alt="Regal Education Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@Regal Education 富豪教育</p>
-                            <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
-                            <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="link-btn-dark">View Profile &rarr;</a>
-                        </div>
-                    </div>
                 </div>
+                
                 <div class="modal-split-right">
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Official Platform</h4>
@@ -533,6 +523,18 @@
                             <p>Explore the official platform and initiatives for the One Earth Summit.</p>
                             <span class="link-btn-dark" style="margin-top: 0;">Visit Website &rarr;</span>
                         </a>
+                    </div>
+
+                    <div>
+                        <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">RedNote Account</h4>
+                        <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px;">
+                            <img src="regallogo.jpg" alt="Regal Education Logo" style="width: 60px; height: auto; border-radius: 6px;">
+                            <div style="flex: 1;">
+                                <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@Regal Education 富豪教育</p>
+                                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
+                                <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="link-btn-dark">View Profile &rarr;</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -555,8 +557,9 @@
                 </div>
 
                 <div class="modal-split-right">
+                    
                     <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px; margin-bottom: 10px;">
-                        <img src="rednote_main.jpg" alt="CityU Logo" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <img src="rednote_main.jpg" alt="CityU Logo" style="width: 60px; height: auto; border-radius: 6px;">
                         <div style="flex: 1;">
                             <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@香港城市大学招生处</p>
                             <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>3961</strong> 次赞与收藏</p>
@@ -566,6 +569,7 @@
 
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Featured Campaigns (Swipe &rarr;)</h4>
+                        
                         <div class="horizontal-scroll-container">
                             
                             <div class="scroll-item">
