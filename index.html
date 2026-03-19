@@ -191,6 +191,7 @@
         .image-card { width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: block; }
         .image-card img { width: 100%; height: auto; display: block; }
 
+        /* 高级悬浮交互卡片 (用于 Website 和 RedNote 统一入口) */
         .website-card { display: block; background: #fff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 40px 30px; text-decoration: none; transition: 0.3s ease; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.03); }
         .website-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
         .website-card h2 { font-family: var(--font-display); font-size: 2.2rem; color: #1c1917; margin-bottom: 10px; }
@@ -279,7 +280,7 @@
                 <div class="section-subtitle">Creative Coding & Media Art</div>
                 <h2 class="section-title">Selected Works</h2>
                 <p style="margin-top:20px; color:var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
-                    Navigating between rational code and emotional narratives. I am fascinated by how technology can reconstruct and question human memory.
+                    Navigating between rational code and emotional narratives. I am a creator fascinated by how technology can reconstruct and question human memory.
                 </p>
             </div>
             
@@ -317,7 +318,7 @@
                 <div class="section-subtitle">Professional Timeline</div>
                 <h2 class="section-title">Experience</h2>
                 <p style="margin-top:20px; color:var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
-                    A track record in event strategy, media operations, and cross-functional leadership, bringing Disney-standard operational excellence to every project.
+                    A track record in event strategy, media operations, and cross-functional leadership.
                 </p>
             </div>
 
@@ -527,14 +528,12 @@
 
                     <div>
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">RedNote Account</h4>
-                        <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px;">
-                            <img src="regallogo.jpg" alt="Regal Education Logo" style="width: 60px; height: auto; border-radius: 6px;">
-                            <div style="flex: 1;">
-                                <p style="color: var(--text-primary); font-weight: 600; margin-bottom: 5px; font-size: 1.1rem; line-height: 1;">@Regal Education 富豪教育</p>
-                                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
-                                <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="link-btn-dark">View Profile &rarr;</a>
-                            </div>
-                        </div>
+                        <a href="https://xhslink.com/m/6OrMZ0lFKJj" target="_blank" class="website-card">
+                            <img src="regallogo.jpg" alt="Regal Education Logo" style="width: 60px; height: auto; border-radius: 6px; margin: 0 auto 15px auto; display: block;">
+                            <h2 style="font-family: var(--font-main); font-size: 1.5rem; font-weight: 600; letter-spacing: -0.5px;">@Regal Education 富豪教育</h2>
+                            <p style="color: var(--text-secondary); margin-bottom: 25px; font-size: 0.95rem;">✨ 在小红书收获了 <strong>42</strong> 次赞与收藏</p>
+                            <span class="link-btn-dark" style="margin-top: 0;">View Profile &rarr;</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -557,7 +556,6 @@
                 </div>
 
                 <div class="modal-split-right">
-                    
                     <div style="background: #fafaf9; padding: 25px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; align-items: flex-start; gap: 15px; margin-bottom: 10px;">
                         <img src="rednote_main.jpg" alt="CityU Logo" style="width: 60px; height: auto; border-radius: 6px;">
                         <div style="flex: 1;">
@@ -571,7 +569,6 @@
                         <h4 style="font-family: var(--font-main); margin-bottom: 15px; color: #78716c;">Featured Campaigns (Swipe &rarr;)</h4>
                         
                         <div class="horizontal-scroll-container">
-                            
                             <div class="scroll-item">
                                 <a href="http://xhslink.com/o/3LAGnj9HiUN" target="_blank" class="mock-video-card">
                                     <img src="cityu_video1.jpg" alt="CityU Post 1">
@@ -611,7 +608,6 @@
                                 </a>
                                 <p style="font-size: 0.85rem; margin-top: 15px; line-height: 1.5; color: var(--text-secondary); font-weight: 500;">香港城市大学，我们来了！！！</p>
                             </div>
-
                         </div>
                     </div>
                 </div>
