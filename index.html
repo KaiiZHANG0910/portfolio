@@ -151,11 +151,12 @@
         .art-item:hover .view-project-link { opacity: 1; transform: translateX(5px); }
 
         /* --- 7. Experience --- */
-        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
-        .work-card { padding: 50px; transition: 0.4s; cursor: pointer; }
+        /* 改为严格的2列网格，实现2和2对齐 */
+        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .work-card { padding: 50px; transition: 0.4s; cursor: pointer; height: 100%; }
         .work-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.1); }
         .work-date { font-size: 0.8rem; color: #a8a29e; font-weight: 500; margin-bottom: 15px; display: block; letter-spacing: 0.5px; }
-        .work-role { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 8px; color: #292524; }
+        .work-role { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 8px; color: #292524; line-height: 1.2; }
         .work-company { color: var(--accent); font-weight: 500; margin-bottom: 20px; display: block; }
 
         /* --- 8. About Section (Glassy Coffee) --- */
@@ -328,13 +329,35 @@
             <div class="section-subtitle">Professional Timeline</div>
         </div>
 
-        <div class="work-grid">
-            <div class="work-card glass-card" onclick="openModal('modal-ist')">
+       <div class="work-grid">
+            <div class="work-card glass-card" onclick="openModal('modal-amunc')">
                 <span class="work-date">Jan 2026 - Present</span>
-                <h3 class="work-role">Event and Media Intern</h3>
-                <span class="work-company">Institute of Sustainability and Technology</span>
-                <p style="color:var(--text-secondary);">Supporting media production and event coordination for sustainability initiatives in Hong Kong.</p>
+                <h3 class="work-role">Secretary-General</h3>
+                <span class="work-company">2026 Athens Cup Model United Nations</span>
+                <p style="color:var(--text-secondary);">Leading a 90+ person team to host 550+ international delegates from 27 provinces.</p>
             </div>
+
+            <div class="work-card glass-card" onclick="openModal('modal-ist')">
+                <span class="work-date">Dec 2025 - Feb 2026</span>
+                <h3 class="work-role">Strategic Project & Operations Intern</h3>
+                <span class="work-company">Institute of Sustainability and Technology</span>
+                <p style="color:var(--text-secondary);">Orchestrated logistical roadmaps for the One Earth Summit and managed cross-departmental integration.</p>
+            </div>
+
+            <div class="work-card glass-card" onclick="openModal('modal-cityu')">
+                <span class="work-date">Oct 2025 - Present</span>
+                <h3 class="work-role">Rednote Operations & Campaign Intern</h3>
+                <span class="work-company">Admission Office, City University of Hong Kong</span>
+                <p style="color:var(--text-secondary);">Synchronized social media promotions with offline campus events to maximize prospective student engagement.</p>
+            </div>
+
+            <div class="work-card glass-card" onclick="openModal('modal-siff')">
+                <span class="work-date">April 2025 - June 2025</span>
+                <h3 class="work-role">Media & Partnership Assistant</h3>
+                <span class="work-company">Shanghai International Film Festival (SMG)</span>
+                <p style="color:var(--text-secondary);">Coordinated with corporate partners to execute complex promotional schedules and managed on-site logistics.</p>
+            </div>
+        </div>
 
             <div class="work-card glass-card" onclick="openModal('modal-amunc')">
                 <span class="work-date">Jan 2026 - Present</span>
@@ -513,27 +536,49 @@
         </div>
     </div>
 
-    <div id="modal-amunc" class="modal">
+   <div id="modal-amunc" class="modal">
         <span class="close-btn" onclick="closeModal('modal-amunc')">&times;</span>
         <div class="modal-content">
             <div class="article-header">
-                <span class="article-meta">Jan 2026 - Present | Shanghai</span>
-                <h1 class="article-title">Athens Model United Nation Cup</h1>
+                <span class="article-meta">Jan 2026 - Present</span>
+                <h1 class="article-title">2026 Athens Cup Model United Nations</h1>
             </div>
             <div class="article-body" style="padding-top: 20px;">
-                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights: General Secretary</h3>
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights: Secretary-General</h3>
                 <ul style="margin-bottom: 40px; line-height: 2; color: #444;">
-                    <li><strong>Team Leadership:</strong> Directed the secretariat team to ensure smooth conference operations.</li>
-                    <li><strong>Strategic Planning:</strong> Managed overall logistics, communications, and media outreach.</li>
+                    <li><strong>Master Orchestrator:</strong> Leading a 90+ person team (Academic Chairs & Volunteers) to host 550+ international delegates from 27 provinces[cite: 35].</li>
+                    <li><strong>Operational Command:</strong> Directing all logistical planning, venue priority management, and budget oversight. Managing high-stakes "clash resolution" between different departments[cite: 36, 37].</li>
+                    <li><strong>Integration Excellence:</strong> Developed a unified communication protocol to synchronize academic, logistics, and marketing workflows[cite: 38].</li>
                 </ul>
 
                 <div style="margin-bottom: 40px; padding-top:20px; border-top:1px solid #eee;">
-                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Selected Video Works</h3>
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Selected Works</h3>
                     <p style="color: var(--text-secondary); margin-bottom: 20px;">(Videos and visual assets to be added soon.)</p>
-                    
-                    <a href="#" target="_blank" class="link-btn">
-                        Visit Related RedNote Account &rarr;
-                    </a>
+                    <a href="#" target="_blank" class="link-btn">Visit Related RedNote Account &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-ist" class="modal">
+        <span class="close-btn" onclick="closeModal('modal-ist')">&times;</span>
+        <div class="modal-content">
+            <div class="article-header">
+                <span class="article-meta">Dec 2025 - Feb 2026</span>
+                <h1 class="article-title">Institute of Sustainability and Technology</h1>
+            </div>
+            <div class="article-body" style="padding-top: 20px;">
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights: Strategic Project & Operations Intern</h3>
+                <ul style="margin-bottom: 40px; line-height: 2; color: #444;">
+                    <li><strong>Large-scale Summit Coordination:</strong> Orchestrated logistical roadmaps for the One Earth Summit. Managed venue availability and activity requests across multiple internal Lines of Business (LOBs)[cite: 15, 16].</li>
+                    <li><strong>Cross-departmental Integration:</strong> Acted as the primary operational liaison for global partners including Alibaba and XPeng Motors[cite: 17].</li>
+                    <li><strong>Project Documentation:</strong> Managed comprehensive event calendars and "Smartsheet" trackers to minimize schedule clashes; prepared executive summaries for internal stakeholders[cite: 19, 20].</li>
+                </ul>
+
+                <div style="margin-bottom: 40px; padding-top:20px; border-top:1px solid #eee;">
+                    <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Selected Works</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">(Videos and visual assets to be added soon.)</p>
+                    <a href="#" target="_blank" class="link-btn">Visit Related RedNote Account &rarr;</a>
                 </div>
             </div>
         </div>
@@ -544,16 +589,15 @@
         <div class="modal-content">
             <div class="article-header">
                 <span class="article-meta">Oct 2025 - Present</span>
-                <h1 class="article-title">RedNote Operation</h1>
+                <h1 class="article-title">Admission Office, CityU</h1>
             </div>
             <div class="article-body" style="padding-top: 20px;">
                 <img src="rednote_main.jpg" alt="RedNote Main" style="width:100%; border-radius:4px; margin-bottom: 30px;">
                 
-                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Key Responsibilities</h3>
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights: Rednote Operations & Campaign Intern</h3>
                 <ul style="margin-bottom: 40px; line-height: 2; color: #444;">
-                    <li><strong>Content Strategy:</strong> Curated high-quality video and graphic content.</li>
-                    <li><strong>Video Production:</strong> Managed end-to-end production.</li>
-                    <li><strong>Data Analysis:</strong> Tracked engagement metrics.</li>
+                    <li><strong>Campaign Integration:</strong> Collaborate with cross-functional recruitment teams to align event calendars. Synchronize social media promotions with offline campus events[cite: 23, 24].</li>
+                    <li><strong>Resource Allocation:</strong> Utilize Excel-based trend analysis to optimize resource distribution for digital campaigns, ensuring project milestones are met[cite: 25].</li>
                 </ul>
             </div>
         </div>
@@ -563,19 +607,31 @@
         <span class="close-btn" onclick="closeModal('modal-siff')">&times;</span>
         <div class="modal-content">
             <div class="article-header">
-                <span class="article-meta">Apr 2025 - Jun 2025</span>
-                <h1 class="article-title">Shanghai Int'l Film Festival</h1>
+                <span class="article-meta">April 2025 - June 2025</span>
+                <h1 class="article-title">Shanghai International Film Festival</h1>
             </div>
             <div class="article-body" style="padding-top: 20px;">
                 <img src="siff.jpg" alt="SIFF Main" style="width:100%; border-radius:4px; margin-bottom: 30px;">
                 
-                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights</h3>
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 20px;">Role Highlights: Media & Partnership Assistant</h3>
                 <ul style="margin-bottom: 40px; line-height: 2; color: #444;">
-                    <li><strong>Instagram Growth:</strong> Increased followers by 2,000.</li>
-                    <li><strong>Photography:</strong> On-site shooting for red carpet events.</li>
-                    <li><strong>Global Comm:</strong> Interpreter for foreign media.</li>
+                    <li><strong>On-site Execution:</strong> Coordinated with corporate partners (Alipay, Screen Daily) to execute complex promotional schedules. Managed on-site logistics to maintain brand consistency[cite: 28, 29].</li>
+                    <li><strong>Stakeholder Synergy:</strong> Facilitated communication between media partners and internal event teams to ensure smooth shooting schedules and press coverage[cite: 30, 31].</li>
                 </ul>
 
+                <div style="margin-bottom: 40px; padding-top:20px; border-top:1px solid #eee;">
+                    <a href="https://xhslink.com/m/1wqjgcJVrZK" target="_blank" class="link-btn">
+                        Visit My RedNote Account &rarr;
+                    </a>
+                </div>
+
+                <h3 style="font-family: var(--font-display); font-size: 1.8rem;">On-site Photography</h3>
+                <div class="exp-gallery">
+                    <img src="siff_photo1.jpg" alt="Photo 1"><img src="siff_photo2.jpg" alt="Photo 2">
+                </div>
+            </div>
+        </div>
+    </div>
                 <div style="margin-bottom: 40px; padding-top:20px; border-top:1px solid #eee;">
                     <a href="https://xhslink.com/m/1wqjgcJVrZK" target="_blank" class="link-btn">
                         Visit My RedNote Account &rarr;
